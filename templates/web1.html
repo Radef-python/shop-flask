@@ -21,7 +21,7 @@
         
     </header>
      <section class="photo">
-    <video muted autoplay loop>
+    <video muted autoplay loop preload="metadata>
         <source src="{{ url_for('static', filename='photos/wem.mp4') }}" type="video/mp4">
     </video>
 </section>
@@ -34,7 +34,7 @@
         <!-- <h1>{{item[1]}}</h1>
         <h2>{{item[2]}}</h2>
         <h3>{{item[3]}}</h3> -->
-        <div class="image-box"><img src="{{url_for('static',filename='photos/'+item[4])}}"></div>
+        <div class="image-box"><img src="{{url_for('static',filename='photos/'+item[4])}}" loading="lazy></div>
     </div>
     
     {% endfor %}
