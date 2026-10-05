@@ -23,7 +23,7 @@ def create_db():
    
     conn.commit()
     conn.close()
-@radef.route("/admin.M.R.11,methods=["GET","POST"])
+@radef.route("/admin.M.R.11",methods=["GET","POST"])
 def home():
     
     
