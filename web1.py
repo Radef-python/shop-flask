@@ -23,7 +23,7 @@ def create_db():
    
     conn.commit()
     conn.close()
-@radef.route("/admin",methods=["GET","POST"])
+@radef.route("/admin.M.R.11,methods=["GET","POST"])
 def home():
     
     
@@ -87,7 +87,7 @@ def delete_product(id):
 
     conn.commit()
     conn.close()
-    return redirect("/admin")
+    return redirect("/admin.M.R.11")
 
 
 @radef.route("/")
