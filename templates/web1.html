@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
+    
+    <link rel="stylesheet" href="{{url_for('static',filename='web1.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="head">
+        <h1 class="line">تفضل اختر طلبك</h1>
+            <nav class="nav">
+            <a href="" id="loc"><i class="fa-sharp fa-solid fa-location-dot"></i></a>
+            <a href="" id="heart"><i class="fa-solid fa-heart"></i></a>
+            </nav> 
+                
+        
+    </header>
+     <section class="photo">
+    <video muted autoplay loop>
+        <source src="{{ url_for('static', filename='photos/wem.mp4') }}" type="video/mp4">
+    </video>
+</section>
+    <section class="radef">
+        <!-- <a>جنزات</a> -->
+    <div class="content">
+    {% for item in products %}
+    
+    <div class="card" onclick="location.href='/product/{{ item[0] }}'">
+        <!-- <h1>{{item[1]}}</h1>
+        <h2>{{item[2]}}</h2>
+        <h3>{{item[3]}}</h3> -->
+        <div class="image-box"><img src="{{url_for('static',filename='photos/'+item[4])}}"></div>
+    </div>
+    
+    {% endfor %}
+    
+    
+
+    </div></section>
+</body>
+</html>

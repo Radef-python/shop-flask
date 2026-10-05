@@ -1,0 +1,119 @@
+
+*{
+    font-family: 'Poppins' , sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.head{
+    background-color: rgb(176, 96, 96);
+    /* background-color: #fbf2e2; */
+    width: 100%;
+    position: fixed;
+    z-index: 999px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    top: 15px;
+   
+    margin-right: 0px;
+    }
+.head h1{margin-left: 240px;}
+
+.line{margin-left: -5px;
+font-size: 20px;}
+.nav #loc{text-decoration: none;
+color: rgb(8, 8, 8);
+box-shadow: black;
+margin-left: -290px;
+transition: 0,9s ease;
+font-size: 25px;
+}
+.nav #loc:hover{color: rgb(247, 247, 242);}
+
+
+.nav #heart{text-decoration: none;
+color: rgb(8, 8, 8);
+box-shadow: black;
+margin-left: -90px;
+transition: 0,9s ease;
+font-size: 25px;
+}
+.nav #heart:hover{color: rgb(241, 45, 45);
+}
+/* .radef{margin-top: 70px;} */
+.
+/* .photo{width: 40px;
+height: 20px;} */
+.photo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-right: 50px;
+    padding-top: 20px;
+    
+}
+
+.photo video {
+    width: 110%;
+    max-width: 1500px;
+    height: 100%;
+    display: block;
+    
+
+}
+.radef a{display: flex;
+justify-content: center;
+font-size: 30px;
+margin-top: -50px;
+
+
+
+}
+/* background-color: #fbd3a8; */
+.radef{background-color: #F7E2D0;
+margin-top: 0px;
+object-fit: cover;}
+
+@media (max-width: 768px) {
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 10px;
+        
+        /* box-shadow: blanchedalmond; */
+    }
+
+    .card {
+        width: auto;
+        margin: 0;
+        padding: 10px;
+        height: auto;
+        box-shadow:0 0px 5px rgb(68, 68, 68);
+        min-height: 250px;
+        background-color: rgb(176, 96, 96);
+        border-radius: 6px;
+        transition: 0.3s ease 0.15s;
+
+        
+    }
+    .card:hover{
+        background-color: rgb(235, 230, 230);
+        /* transition: scale(2.1); */
+        transform: scale(1.1000);
+    }
+.image-box{width: 100%;
+height: 250px;
+justify-content: center;
+align-items: center;
+overflow: hidden;}
+.image-box img{width: 100%;
+height: 100%;
+object-fit: cover;}
+

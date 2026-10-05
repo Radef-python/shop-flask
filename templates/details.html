@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+       
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='details.css')}}">
+    <title>ditails</title>
+</head>
+<body>
+   
+    <section class="sec">
+   
+       
+    <div class="con">
+    {% for image in details_images %}
+
+    <div class="details">
+    
+    <img src="{{url_for('static',filename='photos/'+image)}}">
+    </div>
+    {% endfor %}
+    
+    </div>
+  
+     
+    <h6>
+        السعر:{{product[2]}}<i class="fa-solid fa-coins" id="tish"></i>
+    </h6>
+   <br>
+    <h5>التخفيضات:{{product[3]}}<i class="fa-solid fa-chart-simple" id="tish"></i></h5>
+    <br>
+    <h4>ملاحظة عن هذا المنتج:{{product[1]}}<i class="fa-solid fa-circle-info" id="tish"></i></h4>
+  <br><br>
+   
+    </section>
+    <section class="card1">
+    <div class="co">
+    <div class="card_de">
+    <h1 id="litie"><i class="fa-solid fa-bag-shopping"></i>  للطلب  </h1>
+    <br>
+    <!-- <a><i class="fa-solid fa-bag-shopping"></i></a> -->
+    <!-- <h2 id="xl"><i class="fa-solid fa-shirt"></i></h2>-->
+    <label ><i class="fa-solid fa-shirt" id="tish"></i>:المقاس</label>
+    <!-- <i class="fa-solid fa-shirt"></i> -->
+    <select id="size">
+        <option>L</option>
+       
+        <option>XL</option>
+        
+        <option>XXL</option>
+        
+    </select>
+    <br><br>
+    <label><i class="fa-solid fa-palette" id="tish"></i>:اللون</label>
+    <input type="text" id="color">
+    <br><br>
+    <label id="num">:رقم المشتري</label>
+    <!-- <br><br> -->
+    <input type="number" id="number">
+    <br><br>
+    <label><i class="fa-sharp fa-solid fa-location-dot" id="tish"></i>:المحافظة</label>
+    <select id="city">
+        <option>حمص</option>
+          <option>دمشق</option>
+       
+        <option>حلب</option>
+        
+        <option>حماة</option>
+          <option>طرطوس</option>
+       
+        <option>الاذقية</option>
+        
+       
+        
+        
+
+    </select>
+    <br><br>
+    <h3><i class="fa-solid fa-truck" id="tish"></i>:القدموس الاقرب للمشتري</h3>
+    <input type="text" id="kdmos">
+    
+    <button type="button" onclick="sendOrder()" id="add">ارسال</button>
+
+    </div>
+    </div>
+    
+   
+    </section>
+    
+
+</div>
+<!-- <button type="button" onclick="sendOrder()">ارسال</button>
+
+</div>
+</div>
+</section> -->
+
+<script>
+
+function sendOrder() {
+
+    let size = document.getElementById("size").value;
+    let color = document.getElementById("color").value;
+    let phone = document.getElementById("number").value;
+    let city = document.getElementById("city").value;
+    let address = document.getElementById("kdmos").value;
+
+    let message =
+    "🛍️ طلب جديد\n" +
+    "المقاس: " + size + "\n" +
+    "اللون: " + color + "\n" +
+    "رقم المشتري: " + phone + "\n" +
+    "المحافظة: " + city + "\n" +
+    "القدموس الأقرب: " + address;
+
+let whatsapp = "963980928250";
+
+let url = "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(message);
+
+window.open(url, "_blank");
+
+}
+
+</script>
+
+</body>
+</html>
+
+</body>
+</html>

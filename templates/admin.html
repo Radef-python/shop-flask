@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static',filename='admin.css')}}">
+
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" action="/admin" enctype="multipart/form-data" class="name">
+    <label>اسم المنتج:</label>
+    <input id="ri" type="text" name="name">
+    <br><br>
+    <label>السعر:</label>
+    <input type="number" name="price">
+    <br><br>
+    <label>التخفيضات:</label>
+    <input type="number" min="0" max="100" name="discount">
+    <br><br>
+    <label>صورة المنتج:</label>
+    <input type="file" name="image">
+    <br><br>
+    
+    <label>اضافة عدة صور:</label>
+    <input type="file" name="details_images" multiple> 
+
+    <button>اضافة</button>
+   
+    </form>
+    {% for product in products %}
+
+<div>
+    <span>{{ product[1] }}</span>
+    <span>{{ product[2] }}</span>
+
+    <form method="POST" action="/delete/{{ product[0] }}">
+        <button type="submit">حذف</button>
+    </form>
+</div>
+
+{% endfor %}
+    
+</body>
+</html>
