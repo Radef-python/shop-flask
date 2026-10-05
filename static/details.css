@@ -29,7 +29,7 @@
 
         
     }
-    .details:hover{background-color: rgb(176, 96, 96);
+    .details:active{background-color: rgb(176, 96, 96);
         transform: scale(1.5);
         justify-content: center;
         object-fit: cover;
@@ -100,12 +100,12 @@ background-color: rgb(176, 96, 96);
 border-radius: 4px;
 width: 330px;
 height: 60px;
-margin-top: 30px;
+margin-top: 50px;
 transition: 0.1s ease 0,15s; 
 margin-left: -20px;
 }
 
-.card_de #add:hover{background-color: rgb(155, 70, 74);
+.card_de #add:active{background-color: rgb(155, 70, 74);
 
 }
 .card_de select{margin-top: 20px;
