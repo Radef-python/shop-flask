@@ -32,7 +32,7 @@ margin-left: -290px;
 transition: 0,9s ease;
 font-size: 25px;
 }
-.nav #loc:hover{color: rgb(247, 247, 242);}
+.nav #loc:active{color: rgb(247, 247, 242);}
 
 
 .nav #heart{text-decoration: none;
@@ -42,7 +42,7 @@ margin-left: -90px;
 transition: 0,9s ease;
 font-size: 25px;
 }
-.nav #heart:hover{color: rgb(241, 45, 45);
+.nav #heart:active{color: rgb(241, 45, 45);
 }
 /* .radef{margin-top: 70px;} */
 .
@@ -103,7 +103,7 @@ object-fit: cover;}
 
         
     }
-    .card:hover{
+    .card:active{
         background-color: rgb(235, 230, 230);
         /* transition: scale(2.1); */
         transform: scale(1.1000);
