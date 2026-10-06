@@ -2,12 +2,9 @@ import pandas as pd
 from flask import Flask,render_template,request,redirect,jsonify
 import os
 import sqlite3
-import libsql_client
 radef=Flask(__name__)
-touso_url=os.environ.get("TURSO_URL","libsql://shop-db-radef-python.aws-eu-west-1.turso.io")
-touso_token=os.environ.get("TURSO_AUTH_TOKEN","eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3OTEyOTE4NTQsImlkIjoiMDFhMTExNGUtMzAwMS03NGI0LTkxNzQtNWJhZDcwNDg2NGYwIiwia2lkIjoiaGlyeTY2RmRnaXhOWkZHemNNc1NCS0dyX29aVEl5WHVYbTRlbVZfb1lJWSIsInJpZCI6ImU3N2ZmMzgxLTk5OTYtNDAwYS1iMTE5LWFkOGI3YjU4ZWM0NiJ9.pFek0KAP2bl7cn1YADU8SNdkneaj7mkEeYngYtbCSMnY5dHmQg01z4umC2yGgMLXJ8wr_GcPCblzyCPFGe3pDQ")
 def create_db():
-    conn = libsql_client.create_client(url=touso_url,auth_token=touso_token)
+    conn = sqlite3.connect("products.db")
     
     cursor = conn.cursor()
 
@@ -26,7 +23,7 @@ def create_db():
    
     conn.commit()
     conn.close()
-@radef.route("/admin.11",methods=["GET","POST"])
+@radef.route("/admin.M.R.11",methods=["GET","POST"])
 def home():
     
     
@@ -52,12 +49,12 @@ def home():
 
         details_images = ",".join(detail_filenames)
             
-        conn=libsql_client.create_client(url=touso_url,auth_token=touso_token)
-        # cursor=conn.cursor()
+        conn=sqlite3.connect("products.db")
+        cursor=conn.cursor()
         
 
         conn.execute("INSERT INTO products(name,price,discount,image,details_images) VALUES (?, ?, ?, ?, ?)",(name,pr,dd,filename,details_images))
-        # conn.commit()
+        conn.commit()
         conn.close()
         print(name)
         print(pr)
@@ -65,13 +62,11 @@ def home():
         print(imag)
         
 
-    # conn = sqlite3.connect("products.db")
-    conn=libsql_client.create_client(url=touso_url,auth_token=touso_token)
+    conn = sqlite3.connect("products.db")
+    cursor = conn.cursor()
 
-    # cursor = conn.cursor()
-
-    result=conn.execute("SELECT * FROM products")
-    products = result.rows
+    cursor.execute("SELECT * FROM products")
+    products = cursor.fetchall()
 
     conn.close()
 
@@ -84,29 +79,25 @@ def home():
 @radef.route("/delete/<int:id>", methods=["POST"])
 def delete_product(id):
 
-    # conn = sqlite3.connect("products.db")
-    conn=libsql_client.create_client(url=touso_url,auth_token=touso_token)
+    conn = sqlite3.connect("products.db")
+    cursor = conn.cursor()
 
-    # cursor = conn.cursor()
-
-    conn.execute("DELETE FROM products WHERE id = ?", (id,))
+    cursor.execute("DELETE FROM products WHERE id = ?", (id,))
     
 
-    # conn.commit()
+    conn.commit()
     conn.close()
-    return redirect("/admin.11")
+    return redirect("/admin.M.R.11")
 
 
 @radef.route("/")
 def products():
 
-    # conn = sqlite3.connect("products.db")
-    conn=libsql_client.create_client(url=touso_url,auth_token=touso_token)
+    conn = sqlite3.connect("products.db")
+    cursor = conn.cursor()
 
-    # cursor = conn.cursor()
-
-    result=conn.execute("SELECT * FROM products")
-    products = result.rows
+    cursor.execute("SELECT * FROM products")
+    products = cursor.fetchall()
 
     conn.close()
 
@@ -114,7 +105,7 @@ def products():
 @radef.route("/product/<int:id>")
 def product_details(id):
 
-    conn = sqlite3.create_client("products.db")
+    conn = sqlite3.connect("products.db")
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM products WHERE id = ?", (id,))
