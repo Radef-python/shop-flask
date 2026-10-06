@@ -7,7 +7,7 @@ radef=Flask(__name__)
 touso_url=os.environ.get("TURSO_URL","libsql://shop-db-radef-python.aws-eu-west-1.turso.io")
 touso_token=os.environ.get("TURSO_AUTH_TOKEN","eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3OTEyOTE4NTQsImlkIjoiMDFhMTExNGUtMzAwMS03NGI0LTkxNzQtNWJhZDcwNDg2NGYwIiwia2lkIjoiaGlyeTY2RmRnaXhOWkZHemNNc1NCS0dyX29aVEl5WHVYbTRlbVZfb1lJWSIsInJpZCI6ImU3N2ZmMzgxLTk5OTYtNDAwYS1iMTE5LWFkOGI3YjU4ZWM0NiJ9.pFek0KAP2bl7cn1YADU8SNdkneaj7mkEeYngYtbCSMnY5dHmQg01z4umC2yGgMLXJ8wr_GcPCblzyCPFGe3pDQ")
 def create_db():
-    conn = libsql_client.connect(url=touso_url,auth_token=touso_token)
+    conn = libsql_client.create_client(url=touso_url,auth_token=touso_token)
     
     cursor = conn.cursor()
 
@@ -52,7 +52,7 @@ def home():
 
         details_images = ",".join(detail_filenames)
             
-        conn=libsql_client.connect(url=touso_url,auth_token=touso_token)
+        conn=libsql_client.create_client(url=touso_url,auth_token=touso_token)
         # cursor=conn.cursor()
         
 
@@ -66,7 +66,7 @@ def home():
         
 
     # conn = sqlite3.connect("products.db")
-    conn=libsql_client.connect(url=touso_url,auth_token=touso_token)
+    conn=libsql_client.create_client(url=touso_url,auth_token=touso_token)
 
     # cursor = conn.cursor()
 
@@ -85,7 +85,7 @@ def home():
 def delete_product(id):
 
     # conn = sqlite3.connect("products.db")
-    conn=libsql_client.connect(url=touso_url,auth_token=touso_token)
+    conn=libsql_client.create_client(url=touso_url,auth_token=touso_token)
 
     # cursor = conn.cursor()
 
@@ -101,7 +101,7 @@ def delete_product(id):
 def products():
 
     # conn = sqlite3.connect("products.db")
-    conn=libsql_client.connect(url=touso_url,auth_token=touso_token)
+    conn=libsql_client.create_client(url=touso_url,auth_token=touso_token)
 
     # cursor = conn.cursor()
 
@@ -114,7 +114,7 @@ def products():
 @radef.route("/product/<int:id>")
 def product_details(id):
 
-    conn = sqlite3.connect("products.db")
+    conn = sqlite3.create_client("products.db")
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM products WHERE id = ?", (id,))
