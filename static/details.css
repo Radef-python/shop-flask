@@ -58,7 +58,7 @@ user-select:none;}
     }
 
     .card_de {
-        width: 90%;
+        width: 345;
         margin-left: 20px;
         padding: 20px;
         height: auto;
@@ -101,8 +101,8 @@ border-radius: 10px;
 .card_de #add{font-size: 25px;
 background-color: rgb(176, 96, 96);
 border-radius: 4px;
-width: 330px;
-height: 60px;
+width: 340px;
+height: 75px;
 margin-top: 50px;
 transition: 0.1s ease 0,15s; 
 margin-left: -20px;
